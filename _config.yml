@@ -8,11 +8,12 @@ subtitle: ''          #副标题
 description: '人生苦短，及时行乐~'       #描述
 keywords: 星辰,星辰之家,星辰的博客,xingchen,博客             #搜索关键字
 author: 星辰      #作者
-language: zh_CN          #语言
+language: zh_cn          #语言
 timezone: ''          #时区
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+#安装 npm install hexo-abbrlink --save
 url: http://localhost:4000
 permalink: article/:abbrlink.htm
 permalink_defaults:
@@ -103,3 +104,14 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+
+#本地搜索系统，借用网站（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
+#安装依赖：前往博客根目录，打开cmd命令窗口执行npm install hexo-generator-search --save
+search:
+  encoding: "utf-8"
+  path: search.xml
+  field: all
+  content: true
+#  format: html
+#  limit: 10000

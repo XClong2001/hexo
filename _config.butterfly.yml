@@ -25,8 +25,28 @@ menu:
     Java: /categories/java/
     Linux: /categories/linux/
     hexo: /categories/hexo/
-  链接: /link/ || fas fa-link
-  关于: /about/ || fas fa-heart
+#  链接: /link/ || fas fa-link
+#  关于: /about/ || fas fa-heart
+
+
+#wowjs动画，借用网站（博客魔改教程总结(一)https://www.fomal.cc/posts/eec9786.html）
+# 安装插件 npm install hexo-butterfly-wowjs --save
+wowjs:
+  enable: true #控制动画开关。true是打开，false是关闭
+  priority: 10 #过滤器优先级
+  mobile: false #移动端是否启用，默认移动端禁用
+  animateitem:
+    - class: recent-post-item #必填项，需要添加动画的元素的class
+      style: animate__zoomIn #必填项，需要添加的动画
+      duration: 2s #选填项，动画持续时间，单位可以是ms也可以是s。例如3s，700ms。
+      delay: 1s #选填项，动画开始的延迟时间，单位可以是ms也可以是s。例如3s，700ms。
+      offset: 100 #选填项，开始动画的距离（相对浏览器底部）
+      iteration: 2 #选填项，动画重复的次数
+    - class: card-widget
+      style: animate__zoomIn
+  animate_css: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css
+  wow_js: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js
+  wow_init_js: https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js
 
 # --------------------------------------
 # Code Blocks Settings
@@ -95,9 +115,12 @@ category_per_img:
 # The background image of footer
 footer_img: false
 
+#网站背景，借用网站（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
 # Website Background
 # Can set it to color or image url
-background:
+background: url(https://source.fomal.cc/img/dm1.webp)
+#footer背景
+footer_bg: true
 
 cover:
   # Disable the cover or not
@@ -151,11 +174,14 @@ index_site_info_top:
 # The height of top_img, eg: 300px/300em/300rem
 index_top_img_height:
 
-# The subtitle on homepage
+#网站副标题，借用网站（https://www.fomal.cc/posts/3451f874.html）
+# The subtitle on homepage （主页subttitle）
 subtitle:
-  enable: false
-  # Typewriter Effect
+  enable: true
+  # Typewriter Effect（打字效果）
   effect: true
+  #loop (循环打字)
+  loop: true
   # Customize typed.js
   # https://github.com/mattboldt/typed.js/#customization
   typed_option:
@@ -163,12 +189,15 @@ subtitle:
   # It will show the source first, then show the content of sub
   # Choose: false/1/2/3
   # false - disable the function
-  # 1 - hitokoto.cn
-  # 2 - https://api.aa1.cn/doc/yiyan.html
-  # 3 - jinrishici.com
+  # 1 - hitokoto.cn 调用一言网的一句话
+  # 2 - https://api.aa1.cn/doc/yiyan.html   调用一句每日一言
+  # 3 - jinrishici.com 调用今日诗词（简体）
+  # subttitle 会先演示 source，在演示sub的内容
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
   sub:
+    - "Welcome to xingchenのHome!"
+    - "Hope you have a nice day!🍭🍭🍭"
 
 # Article layout on the homepage
 # 1: Cover on the left, info on the right
@@ -257,6 +286,7 @@ noticeOutdate:
   message_next: days since the last update, the content of the article may be outdated.
 
 # --------------------------------------
+#Footer设置，借用网站（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
 # Footer Settings
 # --------------------------------------
 footer:
@@ -268,12 +298,13 @@ footer:
   copyright:
     enable: true
     version: true
-  custom_text:
+  custom_text: I wish you to become your own sun, no need to rely on who's light.<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p>
 
 # --------------------------------------
 # Aside Settings
 # --------------------------------------
 
+#侧边栏设置，借用网站（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
 aside:
   enable: true
   hide: false
@@ -286,19 +317,19 @@ aside:
     archive: true
     tag: true
     category: true
-  card_author:
+  card_author:          #卡片作者
     enable: true
     description:
     button:
       enable: true
-      icon: fab fa-github
-      text: Follow Me
-      link: https://github.com/xxxxxx
-  card_announcement:
-    enable: true
+      icon: #fab fa-github
+      text: 🛴前往小家...
+      link: https://github.com/xclong2001
+  card_announcement:      #卡片公告
+    enable: false
     content: This is my Blog
   card_recent_post:
-    enable: true
+    enable: false
     # If set 0 will show all
     limit: 5
     # Sort: date / updated
@@ -364,9 +395,10 @@ aside:
 # The distance between the bottom right button and the bottom (default unit: px)
 rightside_bottom:
 
+#简繁转换，借用网页（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
 # Conversion between Traditional and Simplified Chinese
 translate:
-  enable: false
+  enable: true
   # The text of a button
   default: 繁
   # the language of website (1 - Traditional Chinese/ 2 - Simplified Chinese）
@@ -376,11 +408,14 @@ translate:
   # The text of the button when the language is Simplified Chinese
   msgToTraditionalChinese: '繁'
   # The text of the button when the language is Traditional Chinese
-  msgToSimplifiedChinese: '簡'
+  msgToSimplifiedChinese: '简'
 
+#阅读模式
 # Read Mode
 readmode: true
 
+
+#夜间模式-日夜转换，借用网站（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
 # Dark Mode
 darkmode:
   enable: true
@@ -390,7 +425,7 @@ darkmode:
   # autoChangeMode: 1  Following System Settings, if the system doesn't support dark mode, it will switch dark mode between 6 pm to 6 am
   # autoChangeMode: 2  Switch dark mode between 6 pm to 6 am
   # autoChangeMode: false
-  autoChangeMode: false
+  autoChangeMode: 2
   # Set the light mode time. The value is between 0 and 24. If not set, the default value is 6 and 18
   start:
   end:
@@ -430,9 +465,11 @@ copy:
     enable: false
     limit_count: 150
 
+#字数统计，借用网站（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
+#安装插件：在你的博客根目录，打开cmd命令窗口执行npm install hexo-wordcount --save。
 # Need to install the hexo-wordcount plugin
 wordcount:
-  enable: false
+  enable: true
   # Display the word count of the article in post meta
   post_wordcount: true
   # Display the time to read the article in post meta
@@ -440,6 +477,7 @@ wordcount:
   # Display the total word count of the website in aside's webinfo
   total_wordcount: true
 
+#访问人数(UV 和 PV)，借用网站（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
 # Busuanzi count for PV / UV in site
 busuanzi:
   site_uv: true
@@ -485,8 +523,10 @@ search:
     # Number of search results per page
     hitsPerPage: 6
 
+#本地搜索系统
   # Local Search
   local_search:
+    enable: true
     # Preload the search data when the page loads.
     preload: false
     # Show top n results per article, show all results by setting to -1
@@ -782,9 +822,10 @@ mask:
   header: true
   footer: true
 
+#加载动画，借用网站（Hexo博客搭建基础教程(三)https://www.fomal.cc/posts/3451f874.html）
 # Loading Animation
 preloader:
-  enable: false
+  enable: true
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
@@ -808,18 +849,24 @@ beautify:
   # Specify the color of the title prefix icon, such as '#F47466'
   title_prefix_icon_color:
 
+#自定义字体和字体大小，借用网站（https://www.fomal.cc/posts/3451f874.html）
 # Global font settings
 # Don't modify the following settings unless you know how they work
 font:
-  global_font_size:
-  code_font_size:
-  font_family:
-  code_font_family:
+  global_font_size: '15px'
+  code_font_size: '14px'
+  # -apple-system, BlinkMacSystemFont, "Segoe UI" , "Helvetica Neue" , Lato, Roboto, "PingFang SC" , "Microsoft JhengHei" , "Microsoft YaHei" , sans-serif
+  # Wenkai, consolas, -apple-system, 'Quicksand', 'Nimbus Roman No9 L', 'PingFang SC', 'Hiragino Sans GB', 'Noto Serif SC', 'Microsoft Yahei', 'WenQuanYi Micro Hei', 'ST Heiti', sans-serif;
+  font_family: var(--global-font), Consolas_1, -apple-system, 'Quicksand', 'Nimbus Roman No9 L', 'PingFang SC', 'Hiragino Sans GB', 'Noto Serif SC', 'Microsoft Yahei', 'WenQuanYi Micro Hei', 'ST Heiti', sans-serif;
+  # consolas, ZhuZiAWan_light, "Microsoft YaHei", Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
+  # Consolas_1, ZhuZiAWan_light, "Microsoft YaHei", Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
+  code_font_family: Consolas_1, var(--global-font), "Microsoft YaHei", Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
 
+#Blog标题字体，借用网站（https://www.fomal.cc/posts/3451f874.html）
 # Font settings for the site title and site subtitle
 blog_title_font:
   font_link:
-  font_family:
+  font_family: var(--global-font)
 
 # The setting of divider icon
 hr_icon:
